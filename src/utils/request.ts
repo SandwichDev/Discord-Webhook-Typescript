@@ -4,6 +4,9 @@ import { ClientRequest } from 'http'
 const request = {
     async post(url : string,embed : any,hostname:string) {
         return new Promise(async (resolve, reject) => {
+            if (url == '' && hostname == ''){
+                reject('Invalid url or hostname')
+            }
             const body : string = JSON.stringify({embeds : [embed]})
             let options : https.RequestOptions = {
                 'method' : 'POST',
@@ -15,7 +18,6 @@ const request = {
                     'Content-Length' : Buffer.byteLength(body)
                 }
             }
-            //options['headers']['User-Agent'] = 'User-Agent: DiscordBot (https://github.com/abalabahaha/eris, 1)'
             const request : ClientRequest = https.request(options)
             request.on('response', (resp) => {
                 let response = ''

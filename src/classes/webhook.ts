@@ -6,7 +6,6 @@ interface ParsedString{
 }
 interface Embed{
     title? : String
-    type? : String
     description? : String
     url? : String
     timestamp? : String
@@ -42,7 +41,6 @@ class Webhook extends EmbedBuilder{
                 await Request.post(this.webhookURL,this.embed,this.hostName)
                 resolve()
             }catch(e){
-                console.log(e)
                 reject(e)
             }
         })

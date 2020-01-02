@@ -1,6 +1,5 @@
 interface Embed{
     title? : String
-    type? : String
     description? : String
     url? : String
     timestamp? : String
