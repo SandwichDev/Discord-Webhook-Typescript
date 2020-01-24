@@ -4,7 +4,7 @@ import { ClientRequest } from 'http'
 const request = {
     async post(url : string,embed : any,hostname:string) {
         return new Promise(async (resolve, reject) => {
-            if (url == '' && hostname == ''){
+            if (url == '' || hostname == ''){
                 reject('Invalid url or hostname')
             }
             const body : string = JSON.stringify({embeds : [embed]})

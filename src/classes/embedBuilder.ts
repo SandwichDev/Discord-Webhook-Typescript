@@ -63,7 +63,7 @@ class EmbedBuilder{
         }
         return this
     }
-    setField(name : String,value : String,inline? : Boolean){
+    addField(name : String,value : String,inline? : Boolean){
         this.embed.fields.push({name : name, value : value, inline : inline || false})
         return this
     }
